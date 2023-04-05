@@ -1,7 +1,14 @@
-import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
+// import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
+import { ChatCompletionRequestMessage } from "openai";
+import { Configuration, OpenAIApi } from "azure-openai";
 
 const config = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
+  azure: {
+    apiKey: process.env.AZURE_OPENAI_RESOURCE_KEY,
+    endpoint: process.env.AZURE_OPENAI_RESOURCE_ENDPOINT,
+    deploymentName: process.env.AZURE_OPENAI_RESOURCE_DEPLOYMENT,
+  },
 });
 
 const ai = new OpenAIApi(config);
@@ -95,7 +102,8 @@ const debug = false;
 
     const res = await ai
       .createChatCompletion({
-        model: "gpt-3.5-turbo",
+        model: "gpt-4",
+        // model: "gpt-3.5-turbo",
         messages,
       })
       .catch((err) => {
@@ -104,6 +112,8 @@ const debug = false;
         };
       });
 
+    const token = res.data?.usage?.total_tokens;
+    console.log("Token:", token);
     const message = res.data.choices?.[0]?.message.content;
     if (!message) {
       console.log(res.data);

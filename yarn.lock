@@ -79,6 +79,14 @@ axios@^0.26.0:
   dependencies:
     follow-redirects "^1.14.8"
 
+azure-openai@^0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/azure-openai/-/azure-openai-0.9.4.tgz#4aa21c71d015f6e044ad411b4e312055eb4e142c"
+  integrity sha512-7uii4ZInxzu2zjLg45PdvgOaw3ps18tEAw0Yux9mo8anX4PwnCMSS9xdlKNiNQyyEKPogvAcxH2PIufHXFLx6Q==
+  dependencies:
+    axios "^0.26.0"
+    form-data "^4.0.0"
+
 combined-stream@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"

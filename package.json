@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "azure-openai": "^0.9.4",
     "openai": "^3.2.1"
   },
   "scripts": {
